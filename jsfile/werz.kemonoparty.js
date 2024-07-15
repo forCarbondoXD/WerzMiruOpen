@@ -1,10 +1,10 @@
 // ==MiruExtension==
-// @name         WerzMiruKemono
+// @name         Kemono Party
 // @version      v0.0.1
 // @author       WerewolfwolfyXD
 // @lang         zh-cn
 // @license      MIT
-// @package      werzkemono.su
+// @package      werz.kemonoparty
 // @type         manga
 // @icon         https://kemono.su/static/klogo.png
 // @webSite      https://kemono.su
