@@ -61,33 +61,34 @@ export default class extends Extension {
         const rspl = url.split("|");
         const rurl = rspl[0];
         const res = await this.request(rurl);
+        var r = '';
 
         const v_title = await this.querySelector(res, 'meta[property="og:title"]').getAttributeText('content');
         var v_desc = '';
         const v_descr = await this.querySelectorAll(res, 'div[class="post__content"]');
+        
         for (const f of v_descr) {
-            const vf = await this.querySelectorAll(f.content, 'pre');
-            for (const p of vf) {
-                v_desc += await this.querySelector(p.content, 'pre').text + '\n'
-            }
+            v_desc += String(await this.querySelector(res, 'div[class="post__content"]').text).replace('\n', '') + '\n'
 
             const v = await this.querySelectorAll(f.content, 'p');
             for (const p of v) {
                 v_desc += await this.querySelector(p.content, 'p').text + '\n'
             }
+            
         }
+
         const v_thumbnail = rspl[1];
 
         var v_eps = [];
         var v_urls = [];
 
         v_urls.push({
-            name: '',
+            name: '0',
             url: rurl,
         });
 
         v_eps.push({
-            title: "no", urls: v_urls
+            title: "0", urls: v_urls
         });
 
         return {
